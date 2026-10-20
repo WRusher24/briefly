@@ -10,7 +10,7 @@ Briefly turns the noise of the news into a short, structured briefing for three 
 | Provider | Where to get a free key | Suggested model |
 | --- | --- | --- |
 | **Groq** (recommended) | console.groq.com/keys | `llama-3.3-70b-versatile` |
-| **Google Gemini** | aistudio.google.com/apikey | `gemini-2.0-flash` |
+| **Google Gemini** | aistudio.google.com/apikey | `gemini-3.5-flash-lite` |
 | **OpenRouter** | openrouter.ai/keys | a model ending in `:free` |
 | **OpenAI** | platform.openai.com/api-keys | `gpt-4o-mini` |
 | **Custom** | any OpenAI-compatible server | your model id |
