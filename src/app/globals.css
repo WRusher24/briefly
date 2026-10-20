@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: 9 9 11;
+  --surface: 16 16 19;
+  --raised: 23 23 28;
+  --line: 36 36 43;
+  --fg: 236 236 241;
+  --muted: 161 161 174;
+  --faint: 107 107 120;
+  --accent: 129 140 248;
+  --markets: 52 211 153;
+  --sports: 251 146 60;
+  --geo: 96 165 250;
+  --danger: 248 113 113;
+  --ok: 74 222 128;
+}
+
+:root.light {
+  color-scheme: light;
+  --bg: 247 247 249;
+  --surface: 255 255 255;
+  --raised: 241 241 245;
+  --line: 221 221 229;
+  --fg: 20 20 26;
+  --muted: 88 88 102;
+  --faint: 140 140 154;
+  --accent: 79 70 229;
+  --markets: 5 150 105;
+  --sports: 234 88 12;
+  --geo: 37 99 235;
+  --danger: 220 38 38;
+  --ok: 22 163 74;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-bg font-sans text-fg antialiased;
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.005em;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-raised px-3.5 py-2.5 text-[15px] text-fg placeholder:text-faint outline-none transition focus:border-accent/70 focus:ring-2 focus:ring-accent/20;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-faint;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 text-sm font-medium transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-fg text-bg hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply btn border border-line bg-transparent text-fg hover:bg-raised;
+  }
+  .btn-danger {
+    @apply btn border border-danger/40 bg-transparent text-danger hover:bg-danger/10;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-xs text-muted;
+  }
+}
+
+/* Safe-area aware bottom padding for the mobile nav. */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
